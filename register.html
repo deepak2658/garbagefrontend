@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+   background-image: url('https://images.unsplash.com/photo-1540980193882-9fc6e90e29c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80');
+        background-repeat:no-repeat;
+       background-size:cover;
+	   color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: transparent;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password]  {
+  width: 30%;
+  padding: 15px;
+  margin: 6px 0 22px 0;
+
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: light grey;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body >
+
+<form action="/action_page.php">
+  <div class="container">
+ 
+    <h1><center>Welcome to Garbage free</center></h1>
+	<h1><center>Signup</center></h1>
+   <center>     <hr>
+    <center><label for="Name"><b>Username</b></label><br>
+    <input type="text" placeholder="Enter Name" name="name" required><br>
+
+    <label for="email"><b>Email</b></label><br>
+    <input type="text" placeholder="Enter Email" name="email" required><br>
+    
+    <label for="no"><b>Mobile Number</b></label><br>
+    <input type="password" placeholder="Enter Mobile Number" name="no" required><br>
+
+    <label for="psw"><b>Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="psw" required><br>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label><br>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required><br>
+	
+	
+	
+    <hr>
+   
+
+    <button type="submit" class="registerbtn"><a href="map.html">Register</a></button></center>
+  </div>
+  
+  <div class="container signin">
+    <font color="black"><p>Already have an account? <a href="login.html">Sign in</a>.</p></font>
+    
+  </div>
+</form>
+
+</body>
+</html>

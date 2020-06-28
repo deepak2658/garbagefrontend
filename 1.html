@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Search Page</title>
+<style>
+body{
+  padding:20px 20px;
+}
+
+.results tr[visible='false'],
+.no-result{
+  display:none;
+}
+
+.results tr[visible='true']{
+  display:table-row;
+}
+
+.counter{
+  padding:8px; 
+  color:#ccc;
+}
+</style>
+<head>
+
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" placeholder="What you looking for?">
+</div>
+<span class="counter pull-right"></span>
+<table class="table table-hover table-bordered results">
+  <thead>
+    <tr>
+      
+      <th class="col-md-5 col-xs-5">Name / Surname</th>
+      <th class="col-md-4 col-xs-4">Job</th>
+      <th class="col-md-3 col-xs-3">City</th>
+    </tr>
+    <tr class="warning no-result">
+      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        
+        <div class="accordion" id="accordion">
+ 
+          <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+          
+          
+  </div>
+        
+        
+        
+        
+        
+      </td>
+      <td>UI & UX</td>
+      <td>Istanbul</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>  <div class="accordion" id="accordion">
+ 
+          <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+          Collapsible Group Item #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+          
+          
+  </div></td>
+      <td>Software Developer</td>
+      <td>Istanbul</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Egemen Özbeyli</td>
+      <td>Purchasing</td>
+      <td>Kocaeli</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Engin Kızıl</td>
+      <td>Sales</td>
+      <td>Bozuyük</td>
+    </tr>
+  </tbody>
+</table>
+</head>
+<script>
+$(document).ready(function() {
+  $(".search").keyup(function () {
+    var searchTerm = $(".search").val();
+    var listItem = $('.results tbody').children('tr');
+    var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+    
+  $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+        return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+    }
+  });
+    
+  $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+    $(this).attr('visible','false');
+  });
+
+  $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+    $(this).attr('visible','true');
+  });
+
+  var jobCount = $('.results tbody tr[visible="true"]').length;
+    $('.counter').text(jobCount + ' item');
+
+  if(jobCount == '0') {$('.no-result').show();}
+    else {$('.no-result').hide();}
+		  });
+});
+</script>
+
+</body>
+</html>
